@@ -91,8 +91,8 @@ class predictScore(tornado.web.RequestHandler):
 
         print("df")
         print(json_load)
-        val1=json_load[0]['probability'][0]
-        val2=json_load[0]['probability'][1]
+        val1=json_load[0]['probability(0)']
+        val2=json_load[0]['probability(1)']
         #print(val1)
         val1=round(val1,16)
         val2=round(val2,16)
