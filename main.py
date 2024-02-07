@@ -105,10 +105,10 @@ class predictScore(tornado.web.RequestHandler):
         colors=['#14213d','#e63946']
         sizes= [val1,val2]
 
-        if json_load[0]['prediction']:
-            outVal = 'No'
-        else:
-            outVal = 'Yes'
+        # if json_load[0]['prediction']:
+        #     outVal = 'No'
+        # else:
+        #     outVal = 'Yes'
 
         x1x = round(json_load[0]['probability(1)'],12)*100
         x0x = round(json_load[0]['probability(0)'],12)*100
@@ -121,8 +121,8 @@ class predictScore(tornado.web.RequestHandler):
                     ext_source_2=ext_source_2,graduate=graduate,
                     postgraduate=postgraduate,
                     income_type=income_type,
-                    occupation_type=occupation_type,
-                    outVal=outVal)
+                    occupation_type=occupation_type)
+                   # outVal=outVal)
         
 
 
