@@ -78,7 +78,7 @@ class predictScore(tornado.web.RequestHandler):
 
         payload_scoring = [{"EXT_SOURCE_2":ext_source_1,"EXT_SOURCE_3":ext_source_2,"DAYS_BIRTH":birth,"CODE_GENDER_M":gender,"NAME_EDUCATION_TYPE_Higher education":graduate,"NAME_EDUCATION_TYPE_Secondary / secondary special":postgraduate,"NAME_INCOME_TYPE_Working":income_type,"AMT_CREDIT":amt,"CNT_CHILDREN":cnt_children,"OCCUPATION_TYPE_Sales staff":occupation_type}]
         print(payload_scoring)
-        response_scoring = requests.post('http://192.86.32.113:5001/iml/v2/scoring/online/86118501-fc26-4a19-8451-e54b95acae8b', json=payload_scoring, headers=header,verify=False)
+        response_scoring = requests.post('http://192.86.32.113:5001/iml/v2/scoring/online/0a2443f6-e896-450d-8be1-af2108a69ba6', json=payload_scoring, headers=header,verify=False)
 
         json_out = (json.loads(response_scoring.text))
 
@@ -110,8 +110,8 @@ class predictScore(tornado.web.RequestHandler):
         else:
             outVal = 'Yes'
 
-        x1x = round(json_load[0]['probability'][1],12)*100
-        x0x = round(json_load[0]['probability'][0],12)*100
+        x1x = round(json_load[0]['probability(1)'],12)*100
+        x0x = round(json_load[0]['probability(0)'],12)*100
 
         self.render("static/result.html",label=labels,color=colors,size=sizes,x1x=x1x,xox=x0x,bloc="predictScore", jsonstruct=jsonstruct,
                     amt=amt,
