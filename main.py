@@ -61,7 +61,7 @@ class predictScore(tornado.web.RequestHandler):
 
         token = json.loads(response.text)['token']
 
-        base_url = 'http://192.86.32.113:5001/iml/v2/scoring/online/86118501-fc26-4a19-8451-e54b95acae8b'
+        base_url = 'http://192.86.32.113:5001/iml/v2/scoring/online/0a2443f6-e896-450d-8be1-af2108a69ba6'
 
         header = {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token}
         
